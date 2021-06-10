@@ -1,265 +1,961 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grupo de ensino lúdico de lógica e programação">
+  <meta name="keywords" content="Lógica, programação, ensino, ensino lúdico, aprendizado">
+  <meta name="author" content="Júlia Nicola Gualeve">
+  <meta name="language" content="PT">
+  <link rel="shortcut icon" type="image/png" href="./assets/imagens/favicon-ellp.png" />
+  <title>Grupo ELLP</title>
+
+  <!-- Custom libraries -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <!-- Custom script -->
+  <script src="./js/script.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/styles.css">
+
+</head>
+
+<body>
+
+  <!-- Carregamento do site -->
+  <div class="loader">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600"
+      viewBox="0 0 600 600">
+      <defs>
+        <pattern id="pattern" width="1" height="1" viewBox="8.126 30.647 67.722 67.722">
+          <image preserveAspectRatio="none" width="83.973" height="83.973"
+            xlink:href="data:image/png;base64,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" />
+        </pattern>
+      </defs>
+      <g id="pc-loader" transform="translate(-852.621 -778.385)">
+        <g id="pc" transform="translate(852.621 778.385)">
+          <path id="Caminho_332" data-name="Caminho 332"
+            d="M455.706,556.453a298.733,298.733,0,0,1-58.159,27.313,7.785,7.785,0,0,1-10.318-7.355V517.459A11.719,11.719,0,0,0,375.51,505.74H91.269a21.826,21.826,0,0,1-16.359-7.428A298.843,298.843,0,0,1,0,300C0,134.316,134.315,0,300,0c165.558,0,300.39,135.164,300,300.722a298.616,298.616,0,0,1-61.56,181.335,66.113,66.113,0,0,0-16.723-2.142h0A66.012,66.012,0,0,0,455.7,545.926v10.527Z"
+            transform="translate(0)" fill="#f19c49" />
+          <path id="Caminho_333" data-name="Caminho 333"
+            d="M454.722,503.174A298.575,298.575,0,0,1,397.129,530.3a6.547,6.547,0,0,1-8.66-6.206V461.953a11.719,11.719,0,0,0-11.719-11.719H89.849a25.006,25.006,0,0,1-19.008-8.776A299.007,299.007,0,0,1,5.725,310H592.307a298.7,298.7,0,0,1-54.86,118.774,66.1,66.1,0,0,0-16.713-2.14h0a66.012,66.012,0,0,0-66.012,66.012v10.528Z"
+            transform="translate(0.984 53.281)" fill="#065d9b" />
+          <path id="Caminho_334" data-name="Caminho 334" d="M331.25,403.578H200V311H331.25Z"
+            transform="translate(34.375 53.453)" fill="#aadcff" />
+          <path id="Caminho_335" data-name="Caminho 335"
+            d="M223.437,378.594v23.438H200V320H331.25v35.156H246.875A23.437,23.437,0,0,0,223.437,378.594Z"
+            transform="translate(34.375 55)" fill="#72c4fe" />
+          <path id="Caminho_336" data-name="Caminho 336"
+            d="M546.25,41.719V369.844a11.718,11.718,0,0,1-11.719,11.719H51.719A11.719,11.719,0,0,1,40,369.844V41.719A11.719,11.719,0,0,1,51.719,30H534.532A11.719,11.719,0,0,1,546.25,41.719ZM376.328,428.438H209.922a29.3,29.3,0,0,0-29.3,29.3h0a5.86,5.86,0,0,0,5.859,5.859H399.766a5.86,5.86,0,0,0,5.859-5.859h0A29.3,29.3,0,0,0,376.328,428.438Z"
+            transform="translate(6.875 5.156)" fill="#72c4fe" />
+          <path id="Caminho_337" data-name="Caminho 337"
+            d="M541.094,41.719V369.844a11.718,11.718,0,0,1-11.719,11.719H81.719A11.719,11.719,0,0,1,70,369.844V41.719A11.719,11.719,0,0,1,81.719,30H529.375A11.718,11.718,0,0,1,541.094,41.719ZM371.172,428.438H236.992a29.3,29.3,0,0,0-29.3,29.3,5.86,5.86,0,0,0,5.859,5.859H394.61a5.86,5.86,0,0,0,5.859-5.859A29.3,29.3,0,0,0,371.172,428.438Z"
+            transform="translate(12.031 5.156)" fill="#aadcff" />
+          <path id="Caminho_338" data-name="Caminho 338"
+            d="M506.8,341.25H70.859A5.86,5.86,0,0,1,65,335.391V65.859A5.86,5.86,0,0,1,70.859,60H506.8a5.86,5.86,0,0,1,5.859,5.859V335.391A5.86,5.86,0,0,1,506.8,341.25Z"
+            transform="translate(11.172 10.313)" fill="#e8f5ff" />
+          <path id="Caminho_339" data-name="Caminho 339"
+            d="M88.438,341.25H70.859A5.86,5.86,0,0,1,65,335.391V65.859A5.86,5.86,0,0,1,70.859,60H88.438a5.86,5.86,0,0,0-5.859,5.859V335.391A5.86,5.86,0,0,0,88.438,341.25Z"
+            transform="translate(11.172 10.313)" fill="#c4e4fe" />
+          <g id="Grupo_63" data-name="Grupo 63" transform="translate(71.637 433.594)">
+            <path id="Caminho_340" data-name="Caminho 340"
+              d="M387.931,510.924A300.27,300.27,0,0,1,61.13,422H376.212a11.719,11.719,0,0,1,11.719,11.719Z"
+              transform="translate(-61.13 -361.062)" fill="#aadcff" />
+            <path id="Caminho_341" data-name="Caminho 341"
+              d="M390.241,492.978A46.663,46.663,0,0,1,380,463.75V416.875A46.876,46.876,0,0,1,426.875,370h0a46.876,46.876,0,0,1,46.875,46.875v.771A301.545,301.545,0,0,1,390.241,492.978Z"
+              transform="translate(-6.324 -370)" fill="#aadcff" />
+          </g>
+          <path id="Caminho_342" data-name="Caminho 342"
+            d="M454.173,456.7a46.593,46.593,0,0,0,6.6,23.959q-9.072,6.483-18.63,12.3A46.655,46.655,0,0,1,431.9,463.74V416.865a46.875,46.875,0,0,1,44.343-46.8,46.833,46.833,0,0,0-22.07,39.769V456.7Zm24.6-75a11.718,11.718,0,0,0-11.719,11.719v11.719a11.719,11.719,0,0,0,23.438,0V393.427A11.719,11.719,0,0,0,478.776,381.708ZM238.541,487.177H226.823a5.86,5.86,0,0,0-5.859,5.859v11.719a5.86,5.86,0,0,0,5.859,5.859h11.719a5.86,5.86,0,0,0,5.859-5.859V493.037A5.86,5.86,0,0,0,238.541,487.177Zm0,35.156H226.823a5.86,5.86,0,0,0-5.859,5.859v.984q11.558,2.579,23.438,4.252v-5.236A5.86,5.86,0,0,0,238.541,522.333Zm-35.156,0h-7.779q6.571,2.088,13.27,3.878A5.843,5.843,0,0,0,203.385,522.333Zm-35.156-70.312h-90.2a301.787,301.787,0,0,0,27.314,23.437h62.882a5.86,5.86,0,0,0,5.859-5.859V457.88A5.86,5.86,0,0,0,168.229,452.021Zm35.156,35.156H191.666a5.86,5.86,0,0,0-5.859,5.859v11.719a5.86,5.86,0,0,0,5.859,5.859h11.719a5.86,5.86,0,0,0,5.859-5.859V493.037A5.86,5.86,0,0,0,203.385,487.177Zm-11.719-11.719h35.156a5.86,5.86,0,0,0,5.859-5.859V457.88a5.86,5.86,0,0,0-5.859-5.859H191.666a5.86,5.86,0,0,0-5.859,5.859V469.6A5.86,5.86,0,0,0,191.666,475.458Zm-23.437,11.719h-46.31a299.505,299.505,0,0,0,42.853,23.438h3.457a5.86,5.86,0,0,0,5.859-5.859V493.037A5.86,5.86,0,0,0,168.229,487.177Zm187.5,35.156H297.135a5.86,5.86,0,0,0-5.859,5.859v8.143a300.292,300.292,0,0,0,70.182-9.36A5.86,5.86,0,0,0,355.729,522.333Zm0-35.156H332.291a5.86,5.86,0,0,0-5.859,5.859v11.719a5.86,5.86,0,0,0,5.859,5.859h23.438a5.86,5.86,0,0,0,5.859-5.859V493.037A5.86,5.86,0,0,0,355.729,487.177ZM273.7,522.333H261.979a5.86,5.86,0,0,0-5.859,5.859v6.673q11.595,1.171,23.437,1.441v-8.114A5.86,5.86,0,0,0,273.7,522.333Zm82.031-70.312H308.854a5.86,5.86,0,0,0-5.859,5.859V469.6a5.86,5.86,0,0,0,5.859,5.859h46.875a5.86,5.86,0,0,0,5.859-5.859V457.88A5.86,5.86,0,0,0,355.729,452.021ZM273.7,487.177H261.979a5.86,5.86,0,0,0-5.859,5.859v11.719a5.86,5.86,0,0,0,5.859,5.859H273.7a5.86,5.86,0,0,0,5.859-5.859V493.037A5.86,5.86,0,0,0,273.7,487.177Zm17.578-29.3a5.86,5.86,0,0,0-5.859-5.859H250.26a5.86,5.86,0,0,0-5.859,5.859V469.6a5.86,5.86,0,0,0,5.859,5.859h35.156a5.86,5.86,0,0,0,5.859-5.859Zm0,46.875a5.86,5.86,0,0,0,5.859,5.859h11.719a5.86,5.86,0,0,0,5.859-5.859V493.037a5.86,5.86,0,0,0-5.859-5.859H297.135a5.86,5.86,0,0,0-5.859,5.859Z"
+            transform="translate(13.412 63.604)" fill="#72c4fe" />
+        </g>
+        <g id="rotate" transform="translate(1100 930)">
+          <circle class="loader-svg bg" cx="50" cy="50" r="45"></circle>
+          <circle class="loader-svg animate" cx="50" cy="50" r="45"></circle>
+        </g>
+        <rect id="Logotipo" width="83.973" height="83.973" transform="translate(1286.369 1088.44)" opacity="0.42"
+          fill="url(#pattern)" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- Seção inicial do site - parallax -->
+  <section class="home-section">
+    <img src="./assets/imagens/menu.svg" class="dropdown-btn" id="dropb" onclick="dropdown()" />
+    <img src="./assets/imagens/cancel.svg" class="close-btn" id="closeb" onclick="dropdown()" />
+    <ul class=navbar id="navbar1">
+      <li><a href="#sobre">sobre</a></li>
+      <li><a href="#oficinas">oficinas</a></li>
+      <li><a href="#historia">Nossa História</a></li>
+      <li><a href="#resultados">resultados</a></li>
+      <li><a href="#galeria">galeria</a></li>
+    </ul>
+    <div class="titles">
+      <h1>ELLP</h1>
+      <h2>ensino.lúdico(lógica.programação)</h2>
+      <a href="#social"><button>Acesse nossas redes</button></a>
+    </div>
+    <div class="forma-flutuante">
+      <img src="./assets/imagens/forma-branca-papel-tx.png" />
+      <img src="./assets/imagens/ellpinho_v2.png" / id="ellpinho">
+    </div>
+    <div class="parallax">
+      <img src="./assets/icones-parallax/quadrado-pequeno.svg" class="i1 layer responsive1" data-speed="9" />
+      <img src="./assets/icones-parallax/quadrado-4.svg" class="i2 layer responsive2" data-speed="5" />
+      <img src="./assets/icones-parallax/quadrado-3.svg" class="i3 layer responsive3" data-speed="3" />
+      <img src="./assets/icones-parallax/quadrado-2.svg" class="i4 layer responsive4" data-speed="4" />
+      <img src="./assets/icones-parallax/quadrado-1.svg" class="i5 layer responsive1" data-speed="2" />
+      <img src="./assets/icones-parallax/quadrado.svg" class="i6 layer responsive2" data-speed="5" />
+      <img src="./assets/icones-parallax/planeta-pequeno.svg" class="i7 layer responsive3" data-speed="-5" />
+      <img src="./assets/icones-parallax/astronauta.svg" class="i8 layer responsive4" data-speed="2" />
+      <img src="./assets/icones-parallax/circulo.svg" class="i9 layer responsive1" data-speed="5" />
+      <img src="./assets/icones-parallax/x.svg" class="i10 layer responsive2" data-speed="10" />
+      <img src="./assets/icones-parallax/x-2.svg" class="i11 layer responsive3" data-speed="-3" />
+      <img src="./assets/icones-parallax/x-3.svg" class="i12 layer responsive4" data-speed="-2" />
+      <img src="./assets/icones-parallax/x-4.svg" class="i13 layer responsive1" data-speed="-5" />
+      <img src="./assets/icones-parallax/robozinho.svg" class="i14 layer responsive2" data-speed="-3" />
+      <img src="./assets/icones-parallax/lego.svg" class="i15 layer responsive3" data-speed="2" />
+      <img src="./assets/icones-parallax/satelite.svg" class="i16 layer responsive4" data-speed="-9" />
+      <img src="./assets/icones-parallax/quimica.svg" class="i17 layer responsive1" data-speed="4" />
+      <img src="./assets/icones-parallax/artes.svg" class="i18 layer responsive2" data-speed="7" />
+      <img src="./assets/icones-parallax/engrenagem.svg" class="i19 layer responsive3" data-speed="-7" />
+    </div>
+  </section>
+
+  <!-- Sobre o grupo -->
+  <section class="sobre-section" id="sobre">
+    <img src="./assets/imagens/wave-section1.svg" class="wave1" />
+    <div class="my-container">
+      <h1 class="title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Sobre nós</h1>
+      <p data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Somos um grupo de alunos da Universidade
+        Tecnológica Federal do Paraná com o objetivo de levar conhecimentos de lógica e programação
+        para jovens do ensino público da região de Cornélio Procópio!
+      </p>
+      <div class="sobre-mvv">
+        <div>
+          <img src="./assets/imagens/missao.svg" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" />
+          <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Missão</h2>
+          <p data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Desenvolver competências para o século XXI
+            desmistificando conceitos da lógica de programação.</p>
+        </div>
+        <div>
+          <img src="./assets/imagens/visao.svg" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" />
+          <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Visão</h2>
+          <p data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Promover a autoconfiança, cooperação e
+            criatividade com experiências lúdicas de aprendizagem.</p>
+        </div>
+        <div>
+          <img src="./assets/imagens/valor.svg" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" />
+          <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Valor</h2>
+          <p data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Inspirar crianças e adolescentes a
+            estudarem ciência e tecnologia por meio do contato com a universidade pública. </p>
+        </div>
+      </div>
+    </div>
+    <img src="./assets/imagens/wave-section2.svg" class="wave2" />
+  </section>
+
+  <!-- Descrição das oficinas -->
+  <section class="oficinas-section" id="oficinas">
+    <div class="my-container">
+      <div>
+        <h1 class="title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Nossas oficinas</h1>
+      </div>
+      <div class="navegador" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+        <div class="header-nav">
+          <h2>Robótica</h2>
+          <div>
+            <img src="./assets/imagens/minimize.svg">
+            <img src="./assets/imagens/close.svg">
+          </div>
+        </div>
+        <div class="txt-oficina">
+          <img src="./assets/imagens/robotica-thumb.png" />
+          <p class="descricao">Oferecida pelo projeto desde o seu início, visa proporcionar o contato dos alunos com a
+            lógica de programação e conceitos básicos de robótica, aprimorando a capacidade de resolução de problemas,
+            pensamento crítico e estimulando a criatividade.
+            </br></br><a data-toggle="collapse" href="#collapseRobotica" role="button" aria-expanded="false"
+              aria-controls="collapseRobotica" onclick="verMaisFunc()" id="VerMais">Ver mais</a>
+          </p>
+        </div>
+        <div class="collapse " id="collapseRobotica">
+          <div class="coll-div">
+            <p>Tudo isso é feito com o auxílio do LEGO Mindstorms, uma
+              solução educacional que estimula o aprendizado de STEM (sigla internacional para áreas de Ciências,
+              Tecnologia, Engenharia e Matemática) e permite o ensino das mesmas de forma lúdica tornando o aprendizado
+              mais leve.
+              Por meio dos seus motores, sensores, eixos entre muitas outras peças é possível a combinação de todas
+              resultando em diferentes modelos robóticos que são totalmente programáveis de forma simples graças ao
+              software disponibilizado pela LEGO para ser utilizado em conjunto com esse kit o que o torna ideal para se
+              trabalhar com crianças.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="navegador" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+        <div class="header-nav">
+          <h2>Informática</h2>
+          <div>
+            <img src="./assets/imagens/minimize.svg">
+            <img src="./assets/imagens/close.svg">
+          </div>
+        </div>
+        <div class="txt-oficina">
+          <img src="./assets/imagens/info-thumb.png" />
+          <p class="descricao">A informática tem um diferencial enorme no nosso dia a dia, pois com ela ficou muito
+            fácil manter contato com pessoas distantes, realizar um trabalho, ler um livro ou até mesmo jogar! Mas vale
+            lembrar que ela pode ser perigosa caso não tome cuidado. As crianças estão cada vez mais conectadas, e
+            saberem sobre essa ferramenta se torna algo extremamente necessário.</br></br><a data-toggle="collapse"
+              href="#collapseInfo" role="button" aria-expanded="false" aria-controls="collapseInfo"
+              onclick="verMaisFunc2()" id="VerMais2">Ver mais</a>
+          </p>
+        </div>
+        <div class="collapse" id="collapseInfo">
+          <div class="coll-div">
+            <p>E foi pensando nisso que a nossa oficina de informática básica foi desenvolvida, além de explicar sobre o
+              que essa poderosa ferramenta pode fazer, mostramos aos alunos como é construído um computador. Então, é
+              apresentado para eles cada um dos componentes e comentamos sobre a aplicação dos mesmos, assim eles
+              conseguem entender o porquê do computador ser formado daquele jeito. Nossas aulas também tem o intuito de
+              mostrar a eles como acessar um site, utilizar as ferramentas de edição de texto e slides, criar seu
+              próprio email, cuidar das senhas, e a importância de navegar na internet com segurança. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="navegador" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+        <div class="header-nav">
+          <h2>App Inventor</h2>
+          <div>
+            <img src="./assets/imagens/minimize.svg">
+            <img src="./assets/imagens/close.svg">
+          </div>
+        </div>
+        <div class="txt-oficina">
+          <img src="./assets/imagens/app-thumb.png" />
+          <p class="descricao">A oficina de App Inventor tem como objetivo proporcionar aos alunos a experiência de que
+            qualquer pessoa pode ser um desenvolvedor. Através do ambiente de desenvolvimento criado pela empresa Google
+            e mantida pelo Instituto de Tecnologia de Massachusetts (MIT), o MIT App Inventor permite que por meio de
+            programação em blocos pré-programados seja desenvolvido um aplicativo para dispositivos Android.
+            </br></br><a data-toggle="collapse" href="#collapseApp" role="button" aria-expanded="false"
+              aria-controls="collapseApp" onclick="verMaisFunc3()" id="VerMais3">Ver mais</a>
+          </p>
+        </div>
+        <div class="collapse" id="collapseApp">
+          <div class="coll-div">
+            <p>Esta oficina reforça a compreensão de conceitos matemáticos, o estímulo do raciocínio lógico, da
+              criatividade e de tomadas de decisão. Possibilitando que ao final da oficina ele tenha noções sobre lógica
+              de programação, sendo capaz de realizar sequências lógicas na resolução de problemas usando programação em
+              blocos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="navegador" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+        <div class="header-nav">
+          <h2>Dia das Crianças</h2>
+          <div>
+            <img src="./assets/imagens/minimize.svg">
+            <img src="./assets/imagens/close.svg">
+          </div>
+        </div>
+        <div class="txt-oficina">
+          <img src="./assets/imagens/criancas-thumb.png" />
+          <p class="descricao">Oferecida desde 2015, sendo realizada em Cornélio Procópio e em Santa Mariana, conta com
+            diversos apoiadores e parceiros como por exemplo a ONG Cantinho da Criança localizada em Santa Mariana.
+            Atendemos anualmente nesta instituição cerca de 40 crianças em situação de vulnerabilidade social,
+            oferecendo um dia repleto de atividades lúdicas, lanches e diversão! </br></br><a data-toggle="collapse"
+              href="#collapseDiaCriancas" role="button" aria-expanded="false" aria-controls="collapseDiaCriancas"
+              onclick="verMaisFunc4()" id="VerMais4">Ver mais</a></p>
+        </div>
+        <div class="collapse" id="collapseDiaCriancas">
+          <div class="coll-div">
+            <p>Em Cornélio Procópio, esta oficina é realizada com os alunos matriculados no projeto, contanto também com
+              as mesmas atividades e recursos. É umas das atividades mais tradicionais do projeto, sendo a mais esperada
+              por todos os membros.</br>Durante o período de pandemia da Covid-19, para cumprir a tradição de atender a
+              ONG Cantinho da Criança, com auxílio do Rotaract de Santa Mariana e das Empresas Juniores da UTFPR-CP em
+              parceria com o Diretório Acadêmico da Elétrica (Daelt) foi desenvolvido um kit de atividades lúdicas. Este
+              kit teve como objetivo estimular o raciocínio lógico, o interesse pela robótica e lógica de programação. O
+              Kit de Atividades do ELLPinho contava com todos os materiais necessários para a realização das atividades
+              e algumas guloseimas.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Timeline história do ellp -->
+  <section class="historia-section" id="historia">
+    <div class="my-container">
+      <div>
+        <h1 class="title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Nossa história</h1>
+      </div>
+      <div class="timeline" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+        <div class="box left">
+          <div class="content">
+            <div class="content-header" data-toggle="collapse" href="#2014" role="button" aria-expanded="false"
+              aria-controls="2014">
+              <h2>2014</h2>
+              <img src="./assets/imagens/drop-triangulo.svg">
+            </div>
+            <div class="content-collapse collapse" id="2014" aria-expanded="false">
+              <h2>Primeiras Oficinas</h2>
+              <p>As primeiras oficinas eram pontuais e tiveram seu inicio em 2014, sendo a equipe fundadora
+                constituida de alunos e amigos interessados em ensinar lógica de programação através do jogo
+                Kodu, da plataforma Code.org e com Lego Mindstorms.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="box right">
+          <div class="content">
+            <div class="content-header" data-toggle="collapse" href="#2015" role="button" aria-expanded="false"
+              aria-controls="2015">
+              <h2>2015</h2>
+              <img src="./assets/imagens/drop-triangulo.svg">
+            </div>
+            <div class="content-collapse collapse" id="2015" aria-expanded="false">
+              <h2>Início do Projeto</h2>
+              <p>Ao perceber que as oficinas estavam sendo interessantes e tinham a possibilidade de seguir
+                adiante. A equipe fundadora se juntou para escolher um nome ao projeto, chegando então a
+                Grupo ELLP (Ensino Lúdico de Lógica de Programação).
+              </p>
+              <h2>1º Mapa Educação</h2>
+              <p>Já nomeado como ELLP, participamos da I Conferência Mapa Educação como jovens que
+                promovem soluções para os problemas da educação no Brasil. Após o evento, a equipe
+                fundadora teve a certeza de que o ELLP estava grande demais para ser algo pontual.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="box left">
+          <div class="content">
+            <div class="content-header" data-toggle="collapse" href="#2016" role="button" aria-expanded="false"
+              aria-controls="2016">
+              <h2>2016</h2>
+              <img src="./assets/imagens/drop-triangulo.svg">
+            </div>
+            <div class="content-collapse collapse" id="2016" aria-expanded="false">
+              <h2>1º Dia das Crianças em Santa Mariana</h2>
+              <p>Inicia-se a parceria com a ONG (NOME DA ONG) e com o Rotaract de Santa Mariana para o
+                evento de Dia das Criança com jogos lúdicos e doces.
+              </p>
+              <h2>1º Video Institucional</h2>
+              <p>Foi a primeira estratégia de divulgação do projeto, sendo apresentado o projeto pela equipe
+                fundadora dentro do campus da UTFPR – CP e todas as oficinas ofertadas naquela época.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="box right">
+          <div class="content">
+            <div class="content-header" data-toggle="collapse" href="#2017" role="button" aria-expanded="false"
+              aria-controls="2017">
+              <h2>2017</h2>
+              <img src="./assets/imagens/drop-triangulo.svg">
+            </div>
+            <div class="content-collapse collapse" id="2017" aria-expanded="false">
+              <h2>1° Processo Seletivo</h2>
+              <p>Foi a primera seletiva para membros, organizada e idealizada pela equipe fundadora. O
+                objetivo era aumentar o número de membros para poder expandir o trabalho.
+              </p>
+              <h2>Formalização do Projeto</h2>
+              <p>O projeto se formaliza com a Universidade, tendo então apartir desse momento acesso aos
+                laboratórios de informática.
+              </p>
+              <h2>Oficinas no Lar São Vicente</h2>
+              <p>As oficinas no lar São Vicente tiveram seu inicio dentro da instituição, passando depois para os
+                laboratórios da Universidade após a sua formalização. As oficinas ofertadas eram de Lego Mindstorms e
+                App Inventor (MIT), sendo a segunda de maneira pontual. Eram realizadas de forma semanal, e o conteúdo
+                variando entre robótica e informática básica.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="box left">
+          <div class="content">
+            <div class="content-header" data-toggle="collapse" href="#2018" role="button" aria-expanded="false"
+              aria-controls="2018">
+              <h2>2018</h2>
+              <img src="./assets/imagens/drop-triangulo.svg">
+            </div>
+            <div class="content-collapse collapse" id="2018" aria-expanded="false">
+              <h2>Oficinas na UTFPR</h2>
+              <p>Pela primeira vez os conteúdos das oficinas acontecem de maneira separada, sendo criada três oficinas
+                dentro do projeto: Lego, App Inventor (MIT) e Informática Básica.
+              </p>
+              <h2>+100 Alunos</h2>
+              <p>O Grupo ELLP bate a marca de +100 alunos simultaneamente inscritos e espalhados dentre as
+                três oficinas ofertadas pelo projeto. As oficinas eram realizadas semanalmente e tinham a
+                duração de 6 meses.
+              </p>
+              <h2>1° Formatura</h2>
+              <p>Após bater a marca de matrículas totalizando +100 alunos, o projeto faz pela primeira vez uma cerimônia
+                de formatura para as crianças que completaram o curso durante o semestre.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="box right">
+          <div class="content">
+            <div class="content-header" data-toggle="collapse" href="#2019" role="button" aria-expanded="false"
+              aria-controls="2019">
+              <h2>2019</h2>
+              <img src="./assets/imagens/drop-triangulo.svg">
+            </div>
+            <div class="content-collapse collapse" id="2019" aria-expanded="false">
+              <h2>Encontro dos Pais com o Projeto</h2>
+              <p>No anfiteatro da Universidade foi realizado um evento dedicado aos pais e responsáveis dos
+                futuros alunos para apresentar o projeto. Foi um evento que concretizou a importância do
+                Grupo ELLP na vida dos futuros alunos.
+              </p>
+              <h2>Parceria com o NRE</h2>
+              <p>A parceria com o Núcleo Regional de Ensino de Cornélio Procópio estreitou os laços entre as
+                escolas parceiras, podendo assim proporcionar ao projeto atender mais alunos e afirmar ainda
+                mais a nossa credibilidade. A parceria atendeu uma necessidade das oficinas que é o
+                fornecimento de lanches para os alunos participantes.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="box left">
+          <div class="content">
+            <div class="content-header" data-toggle="collapse" href="#2020" role="button" aria-expanded="false"
+              aria-controls="2020">
+              <h2>2020</h2>
+              <img src="./assets/imagens/drop-triangulo.svg">
+            </div>
+            <div class="content-collapse collapse" id="2020" aria-expanded="false">
+              <h2>ELLP Em Casa</h2>
+              <p>Devido ao estado de pandemia, o Grupo ELLP precisou se renovar para poder continuar o seu
+                trabalho. O ELLP Em Casa foi um braço do projeto, sendo exclusivamente online e nas redes
+                sociais! O conteúdo das redes sociais era alimentado 3 vezes por semana e separado por
+                Atividades Lúdicas, Curiosidades, e Robótica. Os temas dessas publicações eram voltados para
+                a ciência, matemática e lógica de programação!
+              </p>
+              <h2>Kit ELLP</h2>
+              <p>Sem a possibilidade de realizar o evento tradicional do Grupo ELLP que é o Dia das Crianças em Santa
+                Mariana, o projeto e mais 4 Empresas Juniores, o diretório acadêmico da elétrica e o Rotaract de Santa
+                Mariana, idealizaram um “Kit de Atividades do ELLPINHO” o qual fornecia 9 atividades do ELLP Em casa em
+                um livreto, e todos os materiais necessarios para realizar as atividades. Foram doados 150 kits para 3
+                instituições entre Cornélio Procópio e Santa Mariana.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="./assets/imagens/wave-final.svg" class="wave-final" />
+  </section>
+
+  <!-- Resultados -->
+  <section class="resultados-section" id="resultados">
+    <div class="my-container">
+      <div>
+        <h1 class="title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Resultados</h1>
+      </div>
+      <div class="resultados-content" id="el" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+        <div>
+          <div class="counter" data-target="6"></div>
+          <p>Anos de Experiência</p>
+        </div>
+        <div>
+          <div class="counter" data-target="600"></div>
+          <p>Certificados Emitidos</p>
+        </div>
+        <div>
+          <div class="counter" data-target="26"></div>
+          <p>Turmas Abertas</p>
+        </div>
+        <div>
+          <div class="counter" data-target="100"></div>
+          <p>Iniciativas em Educação</p>
+        </div>
+        <div>
+          <div class="counter" data-target="100"></div>
+          <p>Gratuito, sempre!</p>
+        </div>
+        <div>
+          <div class="counter" data-target="5"></div>
+          <p>Artigos produzidos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria -->
+  <section class="galeria-section" id="galeria">
+    <div class="my-container">
+      <h1 class="title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Nossa galeria</h1>
+      
+      <div class="slider-tabs" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-ofic-tab" data-toggle="tab" href="#nav-ofic" role="tab" aria-controls="nav-ofic" aria-selected="false">Oficinas</a>
+            <a class="nav-item nav-link" id="nav-crianca-tab" data-toggle="tab" href="#nav-crianca" role="tab" aria-controls="nav-crianca" aria-selected="false">Dia das Crianças</a>
+            <a class="nav-item nav-link" id="nav-vol-tab" data-toggle="tab" href="#nav-vol" role="tab" aria-controls="nav-vol" aria-selected="true">Voluntários</a>
+            <a class="nav-item nav-link" id="nav-apre-tab" data-toggle="tab" href="#nav-apre" role="tab" aria-controls="nav-apre" aria-selected="false">Apresentações</a>
+            <a class="nav-item nav-link" id="nav-forma-tab" data-toggle="tab" href="#nav-forma" role="tab" aria-controls="nav-forma" aria-selected="false">Formaturas</a>
+          </div>
+        </nav>
+  
+        <div class="tab-content" id="nav-tabContent">
+  
+          <div class="tab-pane fade show active" id="nav-ofic" role="tabpanel" aria-labelledby="nav-ofic-tab">
+            <div id="primary-slider">
+              <div class="splide__track">
+                <ul class="splide__list" id="list">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/app.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/info3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/info2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/app2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/app3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/app4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/info.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/info4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo7.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo8.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas16.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina5.jpg">
+                </ul>
+              </div>
+            </div>
+            <div id="secondary-slider">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/app.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/info3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/info2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/app2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/app3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/app4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/info.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/info4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo7.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/robo8.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas16.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/oficina5.jpg">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="nav-crianca" role="tabpanel" aria-labelledby="nav-crianca-tab">
+            <div id="primary-slider2">
+              <div class="splide__track">
+                <ul class="splide__list" id="list">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas.JPG">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas6.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas7.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas8.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas9.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas11.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas12.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas13.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas14.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas15.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas17.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas18.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas19.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas20.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas21.jpg">
+                </ul>
+              </div>
+            </div>
+            <div id="secondary-slider2">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas.JPG">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas6.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas7.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas8.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas9.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas11.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas12.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas13.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas14.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas15.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas17.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas18.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas19.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas20.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/criancas21.jpg">
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-pane fade" id="nav-vol" role="tabpanel" aria-labelledby="nav-vol-tab">
+            <div id="primary-slider3">
+              <div class="splide__track">
+                <ul class="splide__list" id="list">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios6.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios4.jpg">
+                </ul>
+              </div>
+            </div>
+            <div id="secondary-slider3">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios6.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios4.jpg">
+
+                </ul>
+              </div>
+            </div>    
+          </div>
+  
+          <div class="tab-pane fade" id="nav-apre" role="tabpanel" aria-labelledby="nav-apre-tab">
+            <div id="primary-slider4">
+              <div class="splide__track">
+                <ul class="splide__list" id="list">
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/1.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/2.png" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/10.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/11.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/3.png" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/4.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/5.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/6.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/7.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/8.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/9.jpg" />
+                </ul>
+              </div>
+            </div>
+            <div id="secondary-slider4">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/1.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/2.png" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/10.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/11.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/3.png" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/4.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/5.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/6.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/7.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/8.jpg" />
+                  <img class="splide__slide" src="./assets/imagens/apresentacoes/9.jpg" />
+                </ul>
+              </div>
+            </div>  
+          </div>
+  
+          <div class="tab-pane fade" id="nav-forma" role="tabpanel" aria-labelledby="nav-forma-tab">
+            <div id="primary-slider5">
+              <div class="splide__track">
+                <ul class="splide__list" id="list">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura7.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura8.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura9.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura10.jpg">
+                </ul>
+              </div>
+            </div>
+            <div id="secondary-slider5">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura2.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/voluntarios5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura3.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura4.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura5.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura7.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura8.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura9.jpg">
+                  <img class="splide__slide" src="./assets/imagens/carrossel/formatura10.jpg">
+
+                </ul>
+              </div>
+            </div>  
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="footer-section" id="social">
+    <div>
+      <div>
+        <img src="./assets/imagens/logo-navbar.png" />
+        <!-- <img src="./assets/imagens/logo-utf.svg" class="logo-utf" /> -->
+      </div>
+      <div>
+        <p>Siga-nos nas redes sociais!</p>
+        <div class="i-sociais">
+          <a href="https://www.instagram.com/grupoellp" target="_blank"><img src="./assets/imagens/instagram.svg"
+              target="_blank" /></a>
+          <a href="https://www.facebook.com/grupoellp/" target="_blank"><img src="./assets/imagens/facebook.svg" /></a>
+          <a href="https://www.linkedin.com/company/grupoellp/" target="_blank"><img
+              src="./assets/imagens/linkedin.svg" /></a>
+        </div>
+      </div>
+    </div>
+    <p>Desenvolvido com carinho por <a href="https://junicola.com" target="_blank">Ju Nicola</a> ♥</p>
+  </section>
 
 
-    <title>Grupo ELLP - Ensino Lúdico de Lógica de Programação</title>
+  <!-- Botão subir página no topo -->
+  <img src='./assets/imagens/btp.svg' id="btp" onclick="toTop()" />
+
+
+  <!-- Libraries CDN -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+  
+  <!-- Initializer script -->
+  <script>
+    //Initialize AOS 
+    AOS.init();
+
+    // Create and mount the thumbnails slider.
+    var secondarySlider = new Splide('#secondary-slider', {
+      rewind: true,
+      autoWidth: 'true',
+      fixedHeight: 64,
+      isNavigation: true,
+      gap: 10,
+      focus: 'center',
+      pagination: false,
+      cover: true,
+      arrows: false,
+      breakpoints: {
+        '768': {
+          fixedWidth: 66,
+          fixedHeight: 40,
+        }
+      }
+    }).mount();
+
+    var secondarySlider2 = new Splide('#secondary-slider2', {
+      rewind: true,
+      autoWidth: 'true',      
+      fixedHeight: 64,
+      isNavigation: true,
+      gap: 10,
+      focus: 'center',
+      pagination: false,
+      cover: true,
+      arrows: false,
+      breakpoints: {
+        '768': {
+          fixedWidth: 66,
+          fixedHeight: 40,
+        }
+      }
+    }).mount();
+
+    var secondarySlider3 = new Splide('#secondary-slider3', {
+      rewind: true,
+      autoWidth: 'true',
+      fixedHeight: 64,
+      isNavigation: true,
+      gap: 10,
+      focus: 'center',
+      pagination: false,
+      cover: true,
+      arrows: false,
+      breakpoints: {
+        '768': {
+          fixedWidth: 66,
+          fixedHeight: 40,
+        }
+      }
+    }).mount();
+
+    var secondarySlider4 = new Splide('#secondary-slider4', {
+      rewind: true,
+      autoWidth: 'true',
+      fixedHeight: 64,
+      isNavigation: true,
+      gap: 10,
+      focus: 'center',
+      pagination: false,
+      cover: true,
+      arrows: false,
+      breakpoints: {
+        '768': {
+          fixedWidth: 66,
+          fixedHeight: 40,
+        }
+      }
+    }).mount();
+
+    var secondarySlider5 = new Splide('#secondary-slider5', {
+      rewind: true,
+      autoWidth: 'true',
+      fixedHeight: 64,
+      isNavigation: true,
+      gap: 10,
+      focus: 'center',
+      pagination: false,
+      cover: true,
+      arrows: false,
+      breakpoints: {
+        '768': {
+          fixedWidth: 66,
+          fixedHeight: 40,
+        }
+      }
+    }).mount();
     
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    // Create the main slider.
+    var primarySlider = new Splide('#primary-slider', {
+      type: 'fade',
+      autoWidth: 'true',
+      fixedHeight: 500,      
+      pagination: false,
+      arrows: false,
+      cover: true,
+      breakpoints: {
+        '768': {
+          autoWidth: 'true',
+          fixedHeight: 200,  
+        }
+      }
+    });
 
-    <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    var primarySlider2 = new Splide('#primary-slider2', {
+      type: 'fade',
+      autoWidth: 'true',
+      fixedHeight: 500,      
+      pagination: false,
+      arrows: false,
+      cover: true,
+      breakpoints: {
+        '768': {
+          autoWidth: 'true',
+          fixedHeight: 200,  
+        }
+      }
+    });
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    var primarySlider3 = new Splide('#primary-slider3', {
+      type: 'fade',
+      autoWidth: 'true',
+      fixedHeight: 500,      
+      pagination: false,
+      arrows: false,
+      cover: true,
+      breakpoints: {
+        '768': {
+          autoWidth: 'true',
+          fixedHeight: 200,  
+        }
+      }
+    });
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    var primarySlider4 = new Splide('#primary-slider4', {
+      type: 'fade',
+      autoWidth: 'true',
+      fixedHeight: 500,      
+      pagination: false,
+      arrows: false,
+      cover: true,
+      breakpoints: {
+        '768': {
+          autoWidth: 'true',
+          fixedHeight: 200,  
+        }
+      }
+    });
 
-    <!-- Custom scripts for this template -->
-    <script src="js/stylish-portfolio.js"></script>
+    var primarySlider5 = new Splide('#primary-slider5', {
+      type: 'fade',
+      autoWidth: 'true',
+      fixedHeight: 500,      
+      pagination: false,
+      arrows: false,
+      cover: true,
+      breakpoints: {
+        '768': {
+          autoWidth: 'true',
+          fixedHeight: 200,  
+        }
+      }
+    });
 
-  </head>
+    // Set the thumbnails slider as a sync target and then call mount.
+    primarySlider.sync(secondarySlider).mount();
+    primarySlider2.sync(secondarySlider2).mount();
+    primarySlider3.sync(secondarySlider3).mount();
+    primarySlider4.sync(secondarySlider4).mount();
+    primarySlider5.sync(secondarySlider5).mount();
 
-  <body>
-    <!-- Navigation -->
-    <!-- <a id="menu-toggle" href="/about" class="btn btn-dark btn-lg toggle">
-      <i class="fa fa-bars"></i>
-    </a>
-    <nav id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
-          <i class="fa fa-times"></i>
-        </a>
-        <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#top">Start Bootstrap</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#top">Home</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#about">About</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#services">Services</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
-        </li>
-        <li>
-          <a class="js-scroll-trigger" href="#contact" onclick=$( "#menu-close").click();>Contact</a>
-        </li>
-      </ul>
-    </nav> -->
 
-    <!-- Header -->
-    <header class="header" id="top">
-      <div class="text-vertical-center">
-        <h1 class="text-white text-shadow">GRUPO ELLP</h1>
-        <h3 class="text-white text-shadow">Ensino Lúdico de Lógica de Programação</h3>
-        <br>
-        <a href="#lema" class="btn btn-light btn-lg js-scroll-trigger">Saiba Mais</a>
-      </div>
-    </header>
+  </script>
 
-    <!-- About -->
-    <!-- <section id="about" class="about">
-      <div class="container text-center">
-        <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-        <p class="lead">This theme features some wonderful photography courtesy of
-          <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
-      </div>
-    </section> -->
+</body>
 
-    <!-- Services -->
-    <section id="lema" class="services bg-primary text-white">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-lg-10 mx-auto">
-            <h2>Nosso Lema</h2>
-            <hr class="small">
-            <div class="row">
-              <div class="col-md-4 col-sm-6">
-                <div class="service-item">
-                  <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-book fa-stack-1x text-primary"></i>
-                  </span>
-                  <h4>
-                    <strong>Engajamento</strong>
-                  </h4>
-                  <p>Somos aficcionados em ensinar crianças e jovens com o que amamos fazer: tecnologia e matemática!</p>
-                  <!-- <a href="/about" class="btn btn-light">Learn More</a> -->
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="service-item">
-                  <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-heart-o fa-stack-1x text-primary"></i>
-                  </span>
-                  <h4>
-                    <strong>Interesse</strong>
-                  </h4>
-                  <p>Fazemos tudo com amor, interagindo e engajando as crianças com um aprendizado lúdico e prático ;)</p>
-                  <!-- <a href="/about" class="btn btn-light">Learn More</a> -->
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="service-item">
-                  <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-code fa-stack-1x text-primary"></i>
-                  </span>
-                  <h4>
-                    <strong>Raciocínio Lógico</strong>
-                  </h4>
-                  <p>De robótica a jogos, a diversão é integrada com conteúdos de lógica de programação, onde as crianças aprendem se divertindo!</p>
-                  <!-- <a href="/about" class="btn btn-light">Learn More</a> -->
-                </div>
-              </div>
-            </div>
-            <!-- /.row (nested) -->
-          </div>
-          <!-- /.col-lg-10 -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container -->
-    </section>
+<footer>
 
-    <!-- Callout -->
-    <!-- <aside class="callout">
-      <div class="text-vertical-center">
-        <h1>Vertically Centered Text</h1>
-      </div>
-    </aside> -->
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto text-center">
-            <h2 class="text-primary">Nossas Oficinas</h2>
-            <hr class="small">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="portfolio-item">
-                   <a href="/informaticabasica"> 
-                    <img class="img-portfolio img-fluid" src="img/informatica_basica_ong_resgatando_vidas_2017-1_003.jpg">
-                   </a> 
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="portfolio-item">
-                  <a href="/diadascriancas">
-                    <img class="img-portfolio img-fluid" src="img/dia_criancas_santa_mariana.jpg">
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="portfolio-item">
-                   <a href="/engenhariameninas"> 
-                    <img class="img-portfolio img-fluid" src="img/engenharia_para_meninas_001.jpg">
-                   </a> 
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="portfolio-item">
-                  <a href="/ensinomedio">
-                    <img class="img-portfolio img-fluid" src="img/oficina_ensino_medio_001.jpg">
-                  </a>
-                </div>
-              </div>
-            </div>
-            <!-- /.row (nested) -->
-            <!-- <a href="#" class="btn btn-dark">View More Items</a> -->
-          </div>
-          <!-- /.col-lg-10 -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container -->
-    </section>
-
-    <!-- Call to Action -->
-    <!-- <aside class="call-to-action bg-primary text-white">
-      <div class="container text-center">
-        <h3>The buttons below are impossible to resist.</h3>
-        <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-        <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
-      </div>
-    </aside> -->
-
-    <!-- Map -->
-    <section id="contact" class="map">
-      <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d8723.078488108298!2d-50.65222565428347!3d-23.184695768559767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbr!4v1503519722381"></iframe>
-      <br/>
-      <small>
-        <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-      </small>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto text-center">
-            <img src="img/logo_ellp.png" width="50%" class="mg-b-05em" />
-            <!-- <h4>
-              <strong class="text-primary">Grupo ELLP</strong>
-            </h4> -->
-            <ul class="list-unstyled">
-              <!-- <li style="visibility:hidden;">
-                <i class="fa fa-phone fa-fw"></i>
-                (123) 456-7890</li>
-              <li> -->
-                <i class="fa fa-envelope-o fa-fw"></i>
-                <a href="mailto:name@example.com">ellpgrupo@gmail.com</a>
-              </li>
-            </ul>
-            <br>
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="https://www.facebook.com/grupoellp" target="_blank">
-                  <i class="fa fa-facebook fa-fw fa-3x"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://www.instagram.com/grupoellp" target="_blank">
-                  <i class="fa fa-instagram fa-fw fa-3x"></i>
-                </a>
-              </li>
-              <!-- <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-dribbble fa-fw fa-3x"></i>
-                </a>
-              </li> -->
-            </ul>
-            <hr class="small">
-            <p class="text-muted">Parceiros: UTFPR-CP</p>
-            <p class="text-muted">Direitos Reservados &copy; Ensino Lúdico de Lógica de Programação 2017</p>
-          </div>
-        </div>
-      </div>
-      <a id="to-top" href="#top" class="btn btn-dark btn-lg js-scroll-trigger">
-        <i class="fa fa-chevron-up fa-fw fa-1x text-white"></i>
-      </a>
-    </footer>
-
-  </body>
+</footer>
 
 </html>
