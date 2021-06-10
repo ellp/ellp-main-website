@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47">
+  <g id="minimize" transform="translate(-1668.914 -2539.12)">
+    <path id="Icon_awesome-window-minimize" data-name="Icon awesome-window-minimize" d="M30.563,24.75H3.162A2.967,2.967,0,0,0,0,27.472v1.815a2.967,2.967,0,0,0,3.162,2.722h27.4a2.967,2.967,0,0,0,3.162-2.722V27.472A2.967,2.967,0,0,0,30.563,24.75Z" transform="translate(1675.552 2546.304)" fill="#fff"/>
+    <path id="Icon_feather-square" data-name="Icon feather-square" d="M9.389,4.5H43.611A4.889,4.889,0,0,1,48.5,9.389V43.611A4.889,4.889,0,0,1,43.611,48.5H9.389A4.889,4.889,0,0,1,4.5,43.611V9.389A4.889,4.889,0,0,1,9.389,4.5Z" transform="translate(1665.914 2536.12)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  </g>
+</svg>
